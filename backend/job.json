@@ -1,0 +1,39 @@
+// Inside the App component, add these states
+const [newJob, setNewJob] = useState({
+  title: "",
+  company: "",
+  location: "",
+  description: "",
+  salary: "",
+});
+
+// Function to handle form input changes
+const handleChange = (e) => {
+  setNewJob({ ...newJob, [e.target.name]: e.target.value });
+};
+
+// Function to submit the new job to backend
+const handleCreateJob = async () => {
+  if (!newJob.title || !newJob.company) {
+    return alert("Title and Company are required!");
+  }
+
+  try {
+    const res = await fetch("http://localhost:5000/api/jobs", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newJob),
+    });
+    const data = await res.json();
+
+    if (res.ok) {
+      setJobs([data, ...jobs]); // Add new job to the top
+      setNewJob({ title: "", company: "", location: "", description: "", salary: "" });
+      alert("Job posted successfully!");
+    } else {
+      alert(data.error || "Failed to create job");
+    }
+  } catch (err) {
+    console.error("Error creating job:", err);
+  }
+};

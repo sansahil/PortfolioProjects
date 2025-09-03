@@ -1,0 +1,96 @@
+/* Tailwind directives (if using Tailwind) */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* --- Background Gradient Animation --- */
+@keyframes gradient-x {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.animate-gradient-x {
+  background: linear-gradient(-45deg, #ff7eb3, #65c7f7, #0052d4, #ffedbc);
+  background-size: 200% 200%;
+  animation: gradient-x 10s ease infinite;
+}
+
+/* --- Neon Button & Shadow Styles --- */
+.shadow-neon {
+  box-shadow: 0 0 10px #ff77ff, 0 0 20px #00d4ff, 0 0 40px #ff77ff55;
+}
+
+.shadow-neon-lg {
+  box-shadow: 0 0 20px #ff77ff, 0 0 40px #00d4ff, 0 0 60px #ff77ff88;
+}
+
+.shadow-neon-md {
+  box-shadow: 0 0 8px #ff77ff, 0 0 16px #00d4ff, 0 0 32px #ff77ff55;
+}
+
+/* --- Input & File Upload --- */
+input[type="file"] {
+  display: none;
+}
+
+label:hover {
+  border-color: #ff77ff;
+  transition: 0.3s ease;
+}
+
+/* --- Job Cards --- */
+li {
+  list-style: none;
+  padding: 12px;
+  border-radius: 12px;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+li:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 10px #ff77ff, 0 0 20px #00d4ff;
+}
+
+/* --- Scrollbar Styling --- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ff77ff, #00d4ff);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* --- Floating Pulse Shapes --- */
+.animate-pulse {
+  animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.1); opacity: 0.9; }
+}
+
+/* --- Text Neon Gradient --- */
+.text-gradient-neon {
+  background: linear-gradient(90deg, #ff77ff, #00d4ff, #ff77ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-x 8s ease infinite;
+}
+
+/* --- Footer Links Hover --- */
+footer a:hover {
+  color: #ff77ff;
+  transition: 0.3s;
+}
+
+/* --- Global Fonts & Smooth Transitions --- */
+body {
+  font-family: 'Inter', sans-serif;
+  transition: all 0.3s ease;
+}
